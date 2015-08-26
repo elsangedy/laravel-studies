@@ -2,17 +2,17 @@
 
 namespace CodeEducation\Http\Controllers;
 
-use CodeEducation\Repositories\ClientRepository;
-use CodeEducation\Services\ClientService;
+use CodeEducation\Repositories\ProjectRepository;
+use CodeEducation\Services\ProjectService;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class ProjectController extends Controller
 {
     private $repository;
 
     private $service;
 
-    public function __construct(ClientRepository $repository, ClientService $service)
+    public function __construct(ProjectRepository $repository, ProjectService $service)
     {
         $this->repository = $repository;
         $this->service = $service;
@@ -20,7 +20,7 @@ class ClientController extends Controller
 
     public function index()
     {
-        return $this->repository->all();
+        return $this->repository->with(['client', 'user'])->all();
     }
 
     public function store(Request $request)

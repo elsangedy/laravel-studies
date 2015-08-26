@@ -143,9 +143,12 @@ return [
         CodeEducation\Providers\AppServiceProvider::class,
         CodeEducation\Providers\EventServiceProvider::class,
         CodeEducation\Providers\RouteServiceProvider::class,
+        CodeEducation\Providers\CodeEducationRepositoryProvider::class,
 
         LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
+
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
     ],
 

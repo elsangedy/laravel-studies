@@ -19,17 +19,15 @@ Route::post('oauth/access_token', function() {
   return Response::json(Authorizer::issueAccessToken());
 });
 
-Route::group(['middleware' => 'oauth'], function() {
-  Route::resource('/training', 'TrainingController', ['except' => ['create', 'edit']]);
-});
-
-
-
-
-
 
 Route::get('client', 'ClientController@index');
 Route::get('client/{id}', 'ClientController@show');
 Route::post('client', 'ClientController@store');
 Route::put('client/{id}', 'ClientController@update');
 Route::delete('client/{id}', 'ClientController@destroy');
+
+Route::get('project', 'ProjectController@index');
+Route::get('project/{id}', 'ProjectController@show');
+Route::post('project', 'ProjectController@store');
+Route::put('project/{id}', 'ProjectController@update');
+Route::delete('project/{id}', 'ProjectController@destroy');
