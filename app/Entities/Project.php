@@ -18,11 +18,16 @@ class Project extends Model
 
     public function client()
     {
-        return $this->belongsTo('CodeEducation\Entities\Client', 'client_id');
+        return $this->belongsTo(Client::class, 'client_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('CodeEducation\Entities\User', 'owner_id');
+        return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function notes()
+    {
+        return $this->hasMany(ProjectNote::class);
     }
 }

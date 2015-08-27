@@ -32,18 +32,21 @@ $factory->define(CodeEducation\Entities\Client::class, function ($faker) {
 });
 
 $factory->define(CodeEducation\Entities\Project::class, function ($faker) {
-    $users = new CodeEducation\Entities\User;
-    $users = $users->all()->lists('id');
-    $clients = new CodeEducation\Entities\Client;
-    $clients = $clients->all()->lists('id');
-
     return [
-        'owner_id' => $faker->randomElement([1, 2, 3, 4, 5]), // $users
-        'client_id' => $faker->randomElement([1, 2, 3, 4, 5]), // $clients
-        'name' => $faker->name,
+        'owner_id' => rand(1, 5),
+        'client_id' => rand(1, 5),
+        'name' => $faker->word,
         'description' => $faker->sentence,
-        'progress' => $faker->numberBetween(0, 100),
-        'status' => $faker->boolean(),
-        'due_date' => date('Y-m-d')
+        'progress' => rand(1, 100),
+        'status' => rand(1, 3),
+        'due_date' => $faker->dateTime('now')
+    ];
+});
+
+$factory->define(CodeEducation\Entities\ProjectNote::class, function ($faker) {
+    return [
+        'project_id' => rand(1, 10),
+        'title' => $faker->word,
+        'note' => $faker->paragraph
     ];
 });

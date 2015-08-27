@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => CodeEducation\User::class,
+    'model' => CodeEducation\Entities\User::class,
 
     /*
     |--------------------------------------------------------------------------

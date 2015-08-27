@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeEducation;
+namespace CodeEducation\OAuth;
 
 use Illuminate\Support\Facades\Auth;
 
