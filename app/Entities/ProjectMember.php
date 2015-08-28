@@ -4,16 +4,11 @@ namespace CodeEducation\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class ProjectMember extends Model
 {
     protected $fillable = [
-        'owner_id',
-        'client_id',
-        'name',
-        'description',
-        'progress',
-        'status',
-        'due_date'
+        'project_id',
+        'member_id'
     ];
 
     public function client()
@@ -29,10 +24,5 @@ class Project extends Model
     public function notes()
     {
         return $this->hasMany(ProjectNote::class);
-    }
-
-    public function members()
-    {
-        return $this->belongsToMany(User::class, 'project_members', 'member_id');
     }
 }
